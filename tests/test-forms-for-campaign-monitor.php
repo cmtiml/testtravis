@@ -2,14 +2,23 @@
 /**
  * Class SampleTest
  *
- * @package Phpunit_Demo_Plugin
+ * @package Forms_For_Campaign_Monitor
  */
 
 /**
  * Sample test case.
  */
-class SampleTest extends WP_UnitTestCase {
+class FormsForCampaignMonitorTest extends WP_UnitTestCase {
 
+	public function setUp() {
+		parent::setUp();  
+
+	}    
+
+	public function tearDown() {
+			parent::tearDown();
+	} 
+		
 	/**
 	 * A single example test.
 	 */
