@@ -1,4 +1,4 @@
-## PHPUnit Demo Plugin
+## PHPUnit Demo Plugin <img src="https://travis-ci.org/cmtiml/testtravis.svg?branch=master" alt="build:started">
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
