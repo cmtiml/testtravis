@@ -107,7 +107,7 @@ class Options extends Config {
 		$option_name = self::getName() . '_' . $name;
 		if ( get_option( $option_name ) !== false ) {
 			// The option already exists, so we just update it.
-			update_option( $option_name, $value );
+			update_option( $option_name, $value, $autoload );
 		} 
 		else {
 			add_option( $option_name, $value, '', $autoload );
