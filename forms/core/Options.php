@@ -40,7 +40,7 @@ class Options extends Config {
 	 * @param null   $autoload default to null.
 	 * @return bool
 	 */
-	public static function update( $name, $value, $autoload = null ) {
+	public static function update( $name, $value, $autoload = 'yes' ) {
 		$option_name = self::getName() . '_' . $name;
 		echo $name;
 		echo "\n";
@@ -106,7 +106,6 @@ class Options extends Config {
 	public static function addOrUpdate( $name, $value = '', $autoload = 'yes' ) {
 		$option_name = self::getName() . '_' . $name;
 		if ( get_option( $option_name ) !== false ) {
-
 			// The option already exists, so we just update it.
 			update_option( $option_name, $value );
 		} 
