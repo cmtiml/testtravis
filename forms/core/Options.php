@@ -72,9 +72,16 @@ class Options extends Config {
 	public static function getArray( $name, $default = array() ) {
 		$option_name = self::getName() . '_' . $name;
 		$option      = get_option( $option_name, $default );
+		echo $name;
+		echo "before start\n";
+		print_r($option);
 		if ( ! is_array( $option ) ) {            
 			$option = array();
 		}
+		echo $name;
+		echo "\n";
+		print_r($option);
+		echo "after end\n";
 		return $option;
 	}
 
