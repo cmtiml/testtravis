@@ -42,6 +42,10 @@ class Options extends Config {
 	 */
 	public static function update( $name, $value, $autoload = null ) {
 		$option_name = self::getName() . '_' . $name;
+		echo $name;
+		echo "\n";
+		print_r($value);
+		echo "\n";
 		return update_option( $option_name, $value, $autoload );
 	}
 
