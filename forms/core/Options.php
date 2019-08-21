@@ -111,7 +111,10 @@ class Options extends Config {
 			print_r($value);
 			echo "update end\n";
 			// The option already exists, so we just update it.
-			update_option( $option_name, $value, $autoload );
+			$result = update_option( $option_name, $value, $autoload );
+			echo "after running update\n";
+			echo $result;
+			echo "update end\n";
 		} 
 		else {
 			echo "running add\n";
