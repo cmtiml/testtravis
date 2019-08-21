@@ -105,6 +105,7 @@ class Options extends Config {
 	 */
 	public static function addOrUpdate( $name, $value = '', $autoload = 'yes' ) {
 		$option_name = self::getName() . '_' . $name;
+		echo "running add or update\n";
 		if ( get_option( $option_name ) !== false ) {
 			echo "running update\n";
 			print_r($value);
