@@ -46,6 +46,7 @@ class Settings {
 		print_r(self::$settings);
 		echo "Setting.Add after modify end\n";
 		Options::addOrUpdate( self::NAME, self::$settings );
+		wp_cache_delete ( 'alloptions', 'options' );
 	}
 
 	/**
