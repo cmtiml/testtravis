@@ -39,14 +39,14 @@ class Settings {
 	public static function add( $setting, $value ) {
 		self::$settings             = Options::getArray( self::NAME );
 		self::$settings[ $setting ] = $value;
-		Options::update( self::NAME, self::$settings );
+		Options::addOrUpdate( self::NAME, self::$settings );
 	}
 
 	/**
 	 * Reset all the settings
 	 */
 	public static function clear() {
-		return Options::update( self::NAME, array() );
+		return Options::delete( self::NAME );
 	}
 
 	/**

@@ -94,4 +94,24 @@ class Options extends Config {
 		$option_name = self::getName() . '_' . $name;
 		delete_option( $option_name );
 	}
+
+	
+	/**
+	 * WordPress option wrapper
+	 *
+	 * @param string $name option name.
+	 * @param string $value options value.
+	 * @param string $autoload default to yes.
+	 */
+	public static function addOrUpdate( $name, $value = '', $autoload = 'yes' ) {
+		$option_name = self::getName() . '_' . $name;
+		if ( get_option( $option_name ) !== false ) {
+
+			// The option already exists, so we just update it.
+			update_option( $option_name, $value );
+		} 
+		else {
+			add_option( $option_name, $value, '', $autoload );
+		}
+	}
 }
