@@ -76,8 +76,8 @@ class Options extends Config {
 		echo "before start\n";
 		print_r($option);
 		if ( ! is_array( $option ) ) {
-			delete($option_name);
-			add($option_name, array());            
+			self::delete($option_name);
+			self::add($option_name, array());            
 			$option = array();
 		}
 		echo $name;
