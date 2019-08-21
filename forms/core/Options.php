@@ -75,6 +75,7 @@ class Options extends Config {
 		echo $name;
 		echo "before start\n";
 		print_r($option);
+		echo "\n";
 		if ( ! is_array( $option ) ) {
 			self::delete($option_name);
 			self::add($option_name, array());            
@@ -115,7 +116,14 @@ class Options extends Config {
 			// The option already exists, so we just update it.
 			$result = update_option( $option_name, $value, $autoload );
 			echo "after running update\n";
-			echo $result;
+			if($result === true)
+			{
+				echo "success \n";
+			}
+			else{
+				echo "failed \n";
+			}
+			
 			echo "update end\n";
 		} 
 		else {
