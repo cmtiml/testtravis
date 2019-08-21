@@ -106,10 +106,16 @@ class Options extends Config {
 	public static function addOrUpdate( $name, $value = '', $autoload = 'yes' ) {
 		$option_name = self::getName() . '_' . $name;
 		if ( get_option( $option_name ) !== false ) {
+			echo "running update\n";
+			print_r($value);
+			echo "update end\n";
 			// The option already exists, so we just update it.
 			update_option( $option_name, $value, $autoload );
 		} 
 		else {
+			echo "running add\n";
+			print_r($value);
+			echo "add end\n";
 			add_option( $option_name, $value, '', $autoload );
 		}
 	}
