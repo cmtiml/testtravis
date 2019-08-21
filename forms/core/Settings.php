@@ -38,21 +38,15 @@ class Settings {
 	 */
 	public static function add( $setting, $value ) {
 		self::$settings             = Options::getArray( self::NAME );
-		echo "Setting.Add before modify\n";
-		print_r(self::$settings);
-		echo "Setting.Add before modify end\n";
 		self::$settings[ $setting ] = $value;
-		echo "Setting.Add after modify\n";
-		print_r(self::$settings);
-		echo "Setting.Add after modify end\n";
-		Options::addOrUpdate( self::NAME, self::$settings );
+		Options::update( self::NAME, self::$settings );
 	}
 
 	/**
 	 * Reset all the settings
 	 */
 	public static function clear() {
-		return Options::delete( self::NAME );
+		return Options::update( self::NAME, array() );
 	}
 
 	/**

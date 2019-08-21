@@ -40,12 +40,8 @@ class Options extends Config {
 	 * @param null   $autoload default to null.
 	 * @return bool
 	 */
-	public static function update( $name, $value, $autoload = 'yes' ) {
+	public static function update( $name, $value, $autoload = null ) {
 		$option_name = self::getName() . '_' . $name;
-		echo $name;
-		echo "\n";
-		print_r($value);
-		echo "\n";
 		return update_option( $option_name, $value, $autoload );
 	}
 
@@ -72,19 +68,9 @@ class Options extends Config {
 	public static function getArray( $name, $default = array() ) {
 		$option_name = self::getName() . '_' . $name;
 		$option      = get_option( $option_name, $default );
-		echo $name;
-		echo "before start\n";
-		print_r($option);
-		echo "\n";
-		if ( ! is_array( $option ) ) {
-			delete_option($option_name);
-			add_option($option_name, array(), '', 'yes');            
+		if ( ! is_array( $option ) ) {            
 			$option = array();
 		}
-		echo $name;
-		echo "\n";
-		print_r($option);
-		echo "after end\n";
 		return $option;
 	}
 
@@ -96,41 +82,5 @@ class Options extends Config {
 	public static function delete( $name ) {
 		$option_name = self::getName() . '_' . $name;
 		delete_option( $option_name );
-	}
-
-	
-	/**
-	 * WordPress option wrapper
-	 *
-	 * @param string $name option name.
-	 * @param string $value options value.
-	 * @param string $autoload default to yes.
-	 */
-	public static function addOrUpdate( $name, $value = '', $autoload = 'yes' ) {
-		$option_name = self::getName() . '_' . $name;
-		echo "running add or update\n";
-		if ( get_option( $option_name ) !== false ) {
-			echo "running update\n";
-			print_r($value);
-			echo "update end\n";
-			// The option already exists, so we just update it.
-			$result = update_option( $option_name, $value, $autoload );
-			echo "after running update\n";
-			if($result === true)
-			{
-				echo "success \n";
-			}
-			else{
-				echo "failed \n";
-			}
-			
-			echo "update end\n";
-		} 
-		else {
-			echo "running add\n";
-			print_r($value);
-			echo "add end\n";
-			add_option( $option_name, $value, '', $autoload );
-		}
 	}
 }
