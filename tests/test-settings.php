@@ -23,7 +23,7 @@ class TestSettings extends WP_UnitTestCase {
 		// Act.	
 		Settings::add( 'client_secret', 'test_secret' );      
 		$cm_settings = Settings::get();
-
+		print_r($cm_settings);
 		// Assert.
 		$this->assertTrue( is_array( $cm_settings ) );
 		$this->assertSame( $cm_settings['client_secret'], 'test_secret' );
@@ -36,7 +36,7 @@ class TestSettings extends WP_UnitTestCase {
 		// Act.
 		Settings::add( 'client_secret', 'test_secret' );      
 		$cm_settings = Settings::get();
-
+		print_r($cm_settings);
 		// Assert.
 		$this->assertTrue( is_array( $cm_settings ) );
 		$this->assertSame( $cm_settings['client_secret'], 'test_secret' );
