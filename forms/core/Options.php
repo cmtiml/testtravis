@@ -77,8 +77,8 @@ class Options extends Config {
 		print_r($option);
 		echo "\n";
 		if ( ! is_array( $option ) ) {
-			self::delete($name);
-			self::add($name, array());            
+			delete_option($option_name);
+			add_option($option_name, array(), '', 'yes');            
 			$option = array();
 		}
 		echo $name;
