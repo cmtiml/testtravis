@@ -30,6 +30,11 @@
 	<rule ref="WordPress">
 		<exclude name="WordPress-VIP-Go"/>
 	</rule>
+	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+		<exclude-pattern>/forms/core\.php</exclude-pattern>
+		<exclude-pattern>/forms/core/Form\.php</exclude-pattern>
+		<exclude-pattern>/forms/core/ReCaptcha\.php</exclude-pattern>		
+ 	</rule>
 	<rule ref="WordPress.Files.FileName">
 		<properties>
 			<property name="strict_class_file_names" value="false" />
